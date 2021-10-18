@@ -1,0 +1,43 @@
+h2 {
+    text-align: center;
+    margin: 45px 35px;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+    width: 100%;
+    display: table;
+    transition: box-shadow .25s;
+    margin: 15px 2px;
+    background: #ffffff !important;
+    thead {
+        border-bottom: 1px solid #d0d0d0;
+    }
+    &:last-of-type{
+        margin: 15px 2px;
+        background: #fdfdef !important;
+    }
+    &:first-of-type{
+        margin: 15px 2px;
+        background: #ffffff !important;
+    }
+    td, th {
+        text-align: center;
+        padding: 15px 5px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        border-radius: 2px;
+    }
+}
+.head{
+    text-align: center;
+    margin: 45px 35px;
+}
