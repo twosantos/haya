@@ -1,3 +1,8 @@
+# Basic config
+This projects needs a BD url on its .env as 'DATABASE_URL' and update its schema:
+run this command:
+$ bin/console doctrine:migration:exec 20211016171028
+
 # Setup project:
 npm i
 composer install
