@@ -8,7 +8,7 @@
       <thead>
         <tr>
           <th :key="header" v-for="header in headers" v-on:click="sortBy(header)">
-            {{header}}
+            {{header}} 
           </th>
         </tr>
       </thead>
@@ -36,31 +36,39 @@ export default {
     };
   },
   methods:{
+      // get list retrieves the entities through api platform url
       getList:function(){
-        axios.get("https://127.0.0.1:8000/api/properties?name="+this.search).then(response=>{
-          console.log(response);
+        let url = "https://127.0.0.1:8000/api/properties?";
+        let params = [];
+        params["name"] = this.search;
+        params["order[" + this.sorting + "]"] = this.sortingDir;
+        let lthis = this;
+        this.headers.map(function(key, value) {
+          if (key !== lthis.sorting) {
+            params["order[" + key + "]"] = "";
+          }
+        });
+        //parameter encoder
+        const encodeGetParams = p => Object.entries(p).map(kv => kv.map(encodeURIComponent).join("=")).join("&");
+        //api call
+        axios.get(url+encodeGetParams(params)).then(response=>{
           this.items = response.data;
         }).catch(function(error){
           console.log('erros : ',error);
         })
       },
+      // sort by determines which header is selected and how to sort
       sortBy:function(attr) {
+        console.log("here");
         if (this.sorting != attr) {
-          this.sorting = attr;
           this.sortingDir = 'asc';
-        }
-        if (this.sortingDir == 'asc') {
-          this.items = this.items.sort(function(a, b) {
-            return a[attr] > b[attr];
-          });
-          this.sortingDir = 'desc';
         } else {
-          this.items = this.items.sort(function(a, b) {
-            return a[attr] < b[attr];
-          });
-          this.sortingDir = 'asc';
+          this.sortingDir = this.sortingDir == 'asc' ? 'desc' :'asc';
         }
+        this.sorting = attr;
+        this.getList();
       },
+      // this is a custom endpoint to generate random lorem ipsum entities
       addProperties:function(){
         axios.post("https://127.0.0.1:8000/randomProperties").then(response=>{
           this.getList();
@@ -70,9 +78,7 @@ export default {
       },
     },
     mounted:function(){
-        console.log("test");
         this.getList();
-        console.log(this.items);
     },
 };
 </script>

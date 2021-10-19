@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\ExistsFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use App\Repository\PropertyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 */
 #[ApiResource]
 #[ApiFilter(SearchFilter::class, properties: ['name' => 'partial'])]
+#[ApiFilter(OrderFilter::class, properties: ['id', 'name', 'price'], arguments: ['orderParameterName' => 'order'])]
 class Property
 {
     /**
