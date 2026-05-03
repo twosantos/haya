@@ -25,3 +25,4 @@ bash: ## Open bash inside the PHP container
 
 logs: ## Tail docker logs
 	$(DOCKER_COMPOSE) logs -f
+r

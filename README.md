@@ -2,6 +2,8 @@
 
 This is a modern Symfony and Vue.js web application. It uses Webpack Encore with Vue 3 and Stimulus for the frontend.
 
+![Screenshot](./assets/screenshot.png)
+
 ## Requirements
 - Docker and Docker Compose (V2 recommended)
 
@@ -51,7 +53,7 @@ If you need to change database credentials, update them in your `.env` or create
 MYSQL_ROOT_PASSWORD=root
 MYSQL_DATABASE=haya
 MYSQL_USER=victor
-MYSQL_PASSWORD=lampara7
+MYSQL_PASSWORD=tincpad
 ```
 
 ## Tech Stack
