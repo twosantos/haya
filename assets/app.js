@@ -11,12 +11,14 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
-import Vue from 'vue';
-import App from './components/App';
-import axios from 'axios';
+import { createApp } from 'vue';
+import App from './components/App.vue';
 
-new Vue({
-    el: '#app',
-    axios: axios,
-    render: h => h(App)
-});
+const app = createApp(App);
+
+// If you want to make axios available globally in your Vue 3 app like `this.axios` or `this.$axios`:
+// import axios from 'axios';
+// app.config.globalProperties.axios = axios;
+// app.config.globalProperties.$axios = axios;
+
+app.mount('#app');

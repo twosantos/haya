@@ -1,0 +1,27 @@
+# Git version control
+.git/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Dependencies installed locally
+node_modules/
+vendor/
+
+# Symfony cache, logs, and secrets
+var/
+.env.local
+
+# Local build artifacts
+public/build/
+
+# Project documentation and config
+README.md
+Makefile
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore

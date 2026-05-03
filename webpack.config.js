@@ -46,7 +46,8 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     .configureBabel((config) => {
-        config.plugins.push('@babel/plugin-proposal-class-properties');
+        // Class properties are now standard in ES2022 and supported natively by modern babel/preset-env.
+        // We only add the transform plugin if it's explicitly needed, but it's built-in now.
     })
 
     // enables @babel/preset-env polyfills
@@ -72,7 +73,7 @@ Encore
     //.autoProvidejQuery()
     
     //enable vue
-    .enableVueLoader()
+    .enableVueLoader(() => {}, { runtimeCompilerBuild: false, version: 3 })
 
     //enable sass
     .enableSassLoader()
