@@ -1,15 +1,14 @@
 {
     "devDependencies": {
-        "@symfony/stimulus-bridge": "^3.2.0",
-        "@symfony/webpack-encore": "^4.1.1",
-        "@vue/compiler-sfc": "^3.2.0",
-        "core-js": "^3.0.0",
-        "regenerator-runtime": "^0.13.2",
-        "sass": "^1.55.0",
-        "sass-loader": "^13.0.0",
-        "@hotwired/stimulus": "^3.0.0",
-        "webpack": "^5.74.0",
-        "webpack-cli": "^4.10.0",
+        "@symfony/webpack-encore": "^4.6.1",
+        "@vue/compiler-sfc": "^3.4.27",
+        "core-js": "^3.37.1",
+        "regenerator-runtime": "^0.14.1",
+        "sass": "^1.77.4",
+        "sass-loader": "^14.2.1",
+        "webpack": "^5.91.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.0.4",
         "webpack-notifier": "^1.15.0"
     },
     "license": "UNLICENSED",
@@ -21,8 +20,8 @@
         "build": "NODE_OPTIONS=--openssl-legacy-provider encore production --progress"
     },
     "dependencies": {
-        "axios": "^0.23.0",
-        "vue": "^3.2.0",
-        "vue-loader": "^17.0.0"
+        "axios": "^1.7.2",
+        "vue": "^3.4.27",
+        "vue-loader": "^17.4.2"
     }
 }
